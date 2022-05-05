@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="ISO-8859-1">
+    <title>New Page</title>
+    <link rel="stylesheet" type="text/css" href="/webjars/bootstrap/css/bootstrap.min.css" />
+    <script type="text/javascript" src="/webjars/jquery/jquery.min.js"></script>
+    <script type="text/javascript" src="/webjars/bootstrap/js/bootstrap.min.js"></script>
+</head>
+<body>
+<div class="container text-center">
+	<h1> My Expenses </h1>
+	<h3><a th:href="@{/createExpense}">Create New Expense</a></h3>
+	<h3><a th:href="@{/createCategory}">Create New Category</a></h3>
+</div>
+<div>
+    <table class="table table-bordered">
+        <thead class="table-dark">
+        <tr>
+            <th>Expense ID</th>
+            <th>Expense Date</th>
+            <th>Description</th>
+            <th>Location</th>
+            <th>Category</th>
+        </tr>
+        </thead>
+        <tbody>
+        <th:block th:each="expense : ${listExpenses}">
+            <tr>
+                <td>[[${expense.expanseId}]]</td>
+                <td>[[${expense.expanseDate}]]</td>
+                <td>[[${expense.Description}]]</td>
+                <td>[[${expense.Location}]]</td>
+                <td>[[${expense.Category}]]</td>
+            </tr>
+        </th:block>
+        </tbody>
+    </table>
+</div>
+</body>
+</html>
